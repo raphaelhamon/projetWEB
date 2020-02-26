@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2e6970eb-d830-4cca-82b4-3c333c126333" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="product: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="user: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/projetWeb" />
+  </component>
+  <component name="ProjectId" id="1Xi3Q9onOHgUNGBMwKYRMdyTM2R" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="projetWEB" type="Python.FlaskServer">
+      <module name="projetWEB" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e6970eb-d830-4cca-82b4-3c333c126333" name="Default Changelist" comment="" />
+      <created>1581515068049</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581515068049</updated>
+      <workItem from="1581515090421" duration="353000" />
+      <workItem from="1581709058575" duration="5650000" />
+      <workItem from="1581715405754" duration="22923000" />
+      <workItem from="1582721040852" duration="21000" />
+      <workItem from="1582721560308" duration="2815000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582146178493">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1582146178493" />
+    <state width="1398" height="120" key="GridCell.Tab.0.bottom" timestamp="1582728219502">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="120" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582728219502" />
+    <state width="1398" height="120" key="GridCell.Tab.0.center" timestamp="1582728219501">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="120" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1582728219501" />
+    <state width="1398" height="120" key="GridCell.Tab.0.left" timestamp="1582728219500">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="120" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1582728219500" />
+    <state width="1398" height="120" key="GridCell.Tab.0.right" timestamp="1582728219501">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="120" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1582728219501" />
+    <state width="1398" height="115" key="GridCell.Tab.1.bottom" timestamp="1582662130770">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="115" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582662130770" />
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1581718497931" />
+    <state width="1398" height="115" key="GridCell.Tab.1.center" timestamp="1582662130769">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="115" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1582662130769" />
+    <state width="1398" height="303" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1581718497928" />
+    <state width="1398" height="115" key="GridCell.Tab.1.left" timestamp="1582662130769">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="115" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1582662130769" />
+    <state width="1398" height="303" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1581718497925" />
+    <state width="1398" height="115" key="GridCell.Tab.1.right" timestamp="1582662130770">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="115" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1582662130770" />
+    <state width="1398" height="303" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1581718497929" />
+    <state width="239" height="457" key="HiddenNamespacesPopup" timestamp="1581711361079">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="239" height="457" key="HiddenNamespacesPopup/0.0.1440.900@0.0.1440.900" timestamp="1581711361079" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1581709094345">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1581709094345" />
+    <state x="626" y="352" width="350" height="220" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1581711279385">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="626" y="352" width="350" height="220" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1440.900@0.0.1440.900" timestamp="1581711279385" />
+    <state x="600" y="316" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1581710723352">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="600" y="316" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1440.900@0.0.1440.900" timestamp="1581710723352" />
+    <state x="856" y="141" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1582146229042">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="856" y="141" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1440.900@0.0.1440.900" timestamp="1582146229042" />
+    <state x="378" y="85" width="683" height="729" key="find.popup" timestamp="1582145875143">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="378" y="85" width="683" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1582145875143" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1582728219491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

@@ -1,0 +1,43 @@
+.logo{
+    height: 150px;
+    background-color: #ffffff;
+    background-image: url('logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.blue{
+    background-color: #1d9db4;
+    color: #ffffff;
+}
+
+.orange{
+    background-color: #ecb739;
+}
+
+#v-pills-tab{
+    height: calc(100vh - 150px);
+}
+
+.nav-pills .nav-link{
+    color: #ffffff;
+}
+
+.nav-pills .nav-link.active{
+    background-color: #ecb739;
+}
+
+.btn-primary{
+    background-color: #1d9db4;
+    border-color: #1d9db4;
+}
+
+a{
+    color: #1d9db4;
+}
+
+.custom-control-input:checked~.custom-control-label::before{
+    background-color: #ecb739;
+    border-color: #ecb739;
+}
