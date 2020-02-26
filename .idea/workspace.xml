@@ -113,17 +113,34 @@
       <workItem from="1581715405754" duration="22923000" />
       <workItem from="1582721040852" duration="21000" />
       <workItem from="1582721560308" duration="2815000" />
+      <workItem from="1582729631253" duration="288000" />
     </task>
+    <task id="LOCAL-00001" summary="cc">
+      <created>1582729893768</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582729893768</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cc" />
+    <option name="LAST_COMMIT_MESSAGE" value="cc" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582146178493">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1582146178493" />
+    <state x="256" y="23" key="CommitChangelistDialog2" timestamp="1582729893400">
+      <screen x="0" y="23" width="1440" height="825" />
+    </state>
+    <state x="256" y="23" key="CommitChangelistDialog2/0.23.1440.825@0.23.1440.825" timestamp="1582729893400" />
     <state width="1398" height="120" key="GridCell.Tab.0.bottom" timestamp="1582728219502">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
