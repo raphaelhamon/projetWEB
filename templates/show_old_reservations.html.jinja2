@@ -3,17 +3,18 @@
 {% block content %}
 
 
-
+<div id="old">
                 <!-- Tableau de réservations -->
                 <table class="table table-hover text-center mt-2">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Numéro de badge</th>
+                            <th scope="col">Num. badge</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Produit réservé</th>
                             <th scope="col">Formule</th>
                             <th scope="col">Payé</th>
+                            <th scope="col">Date de récupération</th>
                             <th scope="col">Récupéré</th>
                         </tr>
                     </thead>
@@ -24,7 +25,7 @@
                             <th scope="row">{{ reservation['id'] }}</th>
                             <td>{{ reservation['badge_number'] }}</td>
                             <td>{{ reservation['name'] }}</td>
-                            <td>{{ reservation['product_name'] }} {{ reservation['date'] }}</td>
+                            <td>{{ reservation['product_name'] }}</td>
                             <td>
                                 <span class="badge badge-light">Formule</span>
                             </td>
@@ -35,6 +36,9 @@
                                 </div>
                             </td>
                             <td>
+                                 {{ reservation['collect_date'] }}<br/> {{ reservation['collect_time'] }}
+                            </td>
+                            <td>
                                 <button type="button" class="btn btn-primary">Récupéré</button>
                             </td>
                         </tr>
@@ -43,5 +47,5 @@
 
                     </tbody>
                 </table>
-
+</div>
 {% endblock %}

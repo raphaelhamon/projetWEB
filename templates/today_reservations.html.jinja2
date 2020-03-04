@@ -1,23 +1,44 @@
-{% extends 'structure.html.jinja2' %}
 
-{% block content %}
+{% macro display_pack_badge(pack) %}
+    {% if pack%}
+        <span class="badge badge-light">Formule</span>
+    {% else %}
+        <span class="badge badge-info">Sandwich seul</span>
+    {% endif %}
+{% endmacro %}
+
+{% macro selection_tab(test,tab) %}
+    {% if test==tab%}
+        "true"
+    {% else %}
+        "false"
+    {% endif %}
+{% endmacro %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
 
     <!-- Nav bar -->
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="not-paid-tab" data-toggle="tab" href="#not-paid" role="tab"
+            <a class="nav-link{% if tab=='not-paid-tab' %} active{% endif %}" id="not-paid-tab" data-toggle="tab" href="#not-paid" role="tab"
                aria-controls="not-paid"
-               aria-selected="true">Réservations non payées</a>
+               aria-selected={{selection_tab('not-paid-tab',tab)}}>Réservations non payées</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="paid-tab" data-toggle="tab" href="#paid" role="tab" aria-controls="paid"
-               aria-selected="false">Réservations payées & non récupérées</a>
+            <a class="nav-link{% if tab=='paid-tab' %} active{% endif %}" id="paid-tab" data-toggle="tab" href="#paid" role="tab" aria-controls="paid"
+               aria-selected={{selection_tab('paid-tab',tab)}}>Réservations payées & non récupérées</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="collected-tab" data-toggle="tab" href="#collected" role="tab"
+            <a class="nav-link{% if tab=='collected-tab' %} active{% endif %}" id="collected-tab" data-toggle="tab" href="#collected" role="tab"
                aria-controls="collected"
-               aria-selected="false">Réservations terminées</a>
+               aria-selected={{selection_tab('collected-tab',tab)}}>Réservations terminées</a>
         </li>
     </ul>
 
@@ -26,19 +47,19 @@
 
     <div class="tab-content" id="myTabContent">
         <!-- réservations non payées -->
-        <div class="tab-pane fade show active" id="not-paid" role="tabpanel" aria-labelledby="not-paid-tab">
+        <div class="tab-pane fade{% if tab=='not-paid-tab' %} show active{% endif %}" id="not-paid" role="tabpanel" aria-labelledby="not-paid-tab">
             <!-- Tableau de réservations -->
             <table class="table table-hover text-center mt-2">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Numéro de badge</th>
+                    <th scope="col">Num. badge</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Produit réservé</th>
                     <th scope="col">Formule</th>
                     <th scope="col">Montant à payer</th>
                     <th scope="col"></th>
-                    <th scope="col">Actions</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,7 +80,7 @@
                             {{ reservation['price'] }} €
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary">Encaisser</button>
+                            <button type="button" onclick="cash({{ reservation['id'] }})" class="btn btn-primary">Encaisser</button>
                         </td>
                         <td></td>
                     </tr>
@@ -74,18 +95,18 @@
 
 
         <!-- réservations non récupérées -->
-        <div class="tab-pane fade" id="paid" role="tabpanel" aria-labelledby="paid-tab">
+        <div class="tab-pane fade{% if tab=='paid-tab' %} show active{% endif %}" id="paid" role="tabpanel" aria-labelledby="paid-tab">
             <!-- Tableau de réservations -->
             <table class="table table-hover text-center mt-2">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Numéro de badge</th>
+                    <th scope="col">Num. badge</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Produit réservé</th>
                     <th scope="col">Type de réservation</th>
-                    <th scope="col">Récupérer</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -100,7 +121,7 @@
                             {{ display_pack_badge(reservation['pack']) }}
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary">Récupéré</button>
+                            <button type="button" onclick="collect({{ reservation['id'] }})" class="btn btn-primary">Récupéré</button>
                         </td>
                         <td></td>
                     </tr>
@@ -113,17 +134,17 @@
 
 
         <!-- réservations terminées -->
-        <div class="tab-pane fade" id="collected" role="tabpanel" aria-labelledby="collected-tab">
+        <div class="tab-pane fade{% if tab=='collected-tab' %} show active{% endif %}" id="collected" role="tabpanel" aria-labelledby="collected-tab">
             <!-- Tableau de réservations -->
             <table class="table table-hover text-center mt-2">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Numéro de badge</th>
+                    <th scope="col">Num. badge</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Produit réservé</th>
                     <th scope="col">Type de réservation</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -148,6 +169,9 @@
 
 
 
+</body>
+</html>
 
 
-{% endblock %}
+
+

@@ -21,8 +21,8 @@ class Product(db.Model):
 
 class Reservation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    collect_date = db.Column(db.Text)
-    reservation_time=db.Column(db.Text)
+    collect_date = db.Column(db.DateTime)
+    reservation_time=db.Column(db.DateTime)
     paid = db.Column(db.Boolean)
     collected = db.Column(db.Boolean)
     pack = db.Column(db.Boolean)

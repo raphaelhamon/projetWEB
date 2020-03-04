@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e6970eb-d830-4cca-82b4-3c333c126333" name="Default Changelist" comment="" />
+    <list default="true" id="2e6970eb-d830-4cca-82b4-3c333c126333" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/script/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/old_reservations.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/show_reservations.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/today_reservations.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/vide.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/show_future_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/show_future_reservations.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/show_old_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/show_old_reservations.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/show_today_reservations.html.jinja2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/structure.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/structure.html.jinja2" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,8 +74,9 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/projetWeb" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="21305857-0aa3-4c72-a9a9-e5cfeb0c5082" />
   <component name="ProjectId" id="1Xi3Q9onOHgUNGBMwKYRMdyTM2R" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -112,54 +128,69 @@
       <workItem from="1581709058575" duration="5650000" />
       <workItem from="1581715405754" duration="22923000" />
       <workItem from="1582721040852" duration="21000" />
-      <workItem from="1582721560308" duration="2815000" />
+      <workItem from="1582721560308" duration="30765000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582146178493">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1582146178493" />
-    <state width="1398" height="120" key="GridCell.Tab.0.bottom" timestamp="1582728219502">
+    <state x="966" y="294" key="#xdebugger.evaluate" timestamp="1582735193477">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="120" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582728219502" />
-    <state width="1398" height="120" key="GridCell.Tab.0.center" timestamp="1582728219501">
+    <state x="966" y="294" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1582735193477" />
+    <state width="1398" height="253" key="GridCell.Tab.0.bottom" timestamp="1583365340333">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="120" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1582728219501" />
-    <state width="1398" height="120" key="GridCell.Tab.0.left" timestamp="1582728219500">
+    <state width="1398" height="253" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583365340333" />
+    <state width="1398" height="253" key="GridCell.Tab.0.center" timestamp="1583365340332">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="120" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1582728219500" />
-    <state width="1398" height="120" key="GridCell.Tab.0.right" timestamp="1582728219501">
+    <state width="1398" height="253" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583365340332" />
+    <state width="1398" height="253" key="GridCell.Tab.0.left" timestamp="1583365340331">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="120" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1582728219501" />
-    <state width="1398" height="115" key="GridCell.Tab.1.bottom" timestamp="1582662130770">
+    <state width="1398" height="253" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583365340331" />
+    <state width="1398" height="253" key="GridCell.Tab.0.right" timestamp="1583365340333">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="115" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582662130770" />
-    <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1581718497931" />
-    <state width="1398" height="115" key="GridCell.Tab.1.center" timestamp="1582662130769">
+    <state width="1398" height="253" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583365340333" />
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1583365340335">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="115" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1582662130769" />
-    <state width="1398" height="303" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1581718497928" />
-    <state width="1398" height="115" key="GridCell.Tab.1.left" timestamp="1582662130769">
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583365340335" />
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1583353825981" />
+    <state width="1398" height="253" key="GridCell.Tab.1.center" timestamp="1583365340334">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="115" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1582662130769" />
-    <state width="1398" height="303" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1581718497925" />
-    <state width="1398" height="115" key="GridCell.Tab.1.right" timestamp="1582662130770">
+    <state width="1398" height="253" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1583365340334" />
+    <state width="1398" height="253" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1583353825980" />
+    <state width="1398" height="253" key="GridCell.Tab.1.left" timestamp="1583365340334">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="115" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1582662130770" />
-    <state width="1398" height="303" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1581718497929" />
+    <state width="1398" height="253" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1583365340334" />
+    <state width="1398" height="253" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1583353825980" />
+    <state width="1398" height="253" key="GridCell.Tab.1.right" timestamp="1583365340334">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1583365340334" />
+    <state width="1398" height="253" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1583353825981" />
     <state width="239" height="457" key="HiddenNamespacesPopup" timestamp="1581711361079">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -186,6 +217,6 @@
     <state x="378" y="85" width="683" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1582145875143" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1582728219491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1583354064453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
