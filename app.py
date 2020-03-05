@@ -198,16 +198,16 @@ def get_table(id, tab='not-paid-tab'):
     if id=='old_reservations':
         to_display=get_old_reservations()
         return flask.render_template("old_reservations.html.jinja2",
-                                     to_display=to_display,)
+                                     to_display=to_display)
     if id=='today_reservations':
         to_display=get_today_reservations()
         return flask.render_template("today_reservations.html.jinja2",
                                      tab=tab,
-                                     to_display=to_display,)
+                                     to_display=to_display)
     if id=='future_reservations':
         to_display=get_future_reservations()
         return flask.render_template("future_reservations.html.jinja2",
-                                     to_display=to_display,)
+                                     to_display=to_display)
 
 @app.route("/admin/cash/<id>", methods=["GET", "POST"])
 def cash(id):
@@ -215,7 +215,7 @@ def cash(id):
     reservation.paid = True
     db.session.add(reservation)
     db.session.commit()
-    return flask.render_template("vide.html.jinja2")
+    return flask.render_template("empty.html.jinja2")
 
 
 @app.route("/admin/collect/<id>", methods=["GET", "POST"])
@@ -224,7 +224,7 @@ def collect(id):
     reservation.collected = True
     db.session.add(reservation)
     db.session.commit()
-    return flask.render_template("vide.html.jinja2")
+    return flask.render_template("empty.html.jinja2")
 
 
 if __name__ == '__main__':

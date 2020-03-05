@@ -47,13 +47,23 @@ function collect(reservation_id) {
             refresh('today_reservations')
         },
         error: function (){
-            display_error("Un problème est survenu. Le produit n'a pas pu être marqué comme récupéré")
+            display_error("Un problème est survenu", "Le produit n'a pas pu être marqué comme récupéré")
         }
     });
 }
 
-function display_error(error) {
-    alert(error);
+function display_error(error_title, error_body, error_button=null, error_button_action=null) {
+    $('#errorBoxTitle').html(error_title)
+    $('#errorBoxBody').html(error_body)
+    if(error_button==null){
+        $('#errorButton').css('display','none');
+    }else{
+        $('#errorButton').html(error_button);
+        $('#errorButton').css('display','block');
+        $('#errorButton').click(error_button_action);
+
+    }
+    $('#errorBox').modal('show')
 }
 
 $(function () {
