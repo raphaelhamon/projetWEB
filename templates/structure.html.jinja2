@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 
+{% macro display_new_item_button(page) %}
+    {% if page=='products_management' %}
+        <button type="button" class="btn mb-3 btn-success" onclick="open_product_modal()">Nouveau produit</button>
+    {% elif page=='today_reservations' or page=='old_reservations' or page=='future_reservations' %}
+        <button type="button" class="btn mb-3 btn-success" onclick="open_reservation_modal()">Nouvelle réservation</button>
+    {% endif %}
+{% endmacro %}
 
 {% macro set_active_if(variable, name) %}
     {% if variable == name %} active{% endif %}
@@ -31,51 +38,70 @@
     <div class="col-3 blue">
         <div class="nav flex-column nav-pills text-right" id="v-pills-tab" role="navigation"
              aria-orientation="vertical">
-            <a href="{{ url_for("today_reservations") }}">Test</a>
             <a class="nav-link{{ set_active_if(active_page, "today_reservations") }}" id="v-pills-home-tab"
-               href="{{ url_for("today_reservations") }}"
+               href="{{ url_for("reservations_management", date='du-jour') }}"
                aria-controls="v-pills-home" aria-selected="true">Réservations du jour</a>
             <a class="nav-link{{ set_active_if(active_page, "old_reservations") }}" id="v-pills-profile-tab"
-               href="{{ url_for("old_reservations") }}"
+               href="{{ url_for("reservations_management", date='passees') }}"
                aria-controls="v-pills-profile" aria-selected="false">Réservations passées</a>
             <a class="nav-link{{ set_active_if(active_page, "future_reservations") }}" id="v-pills-messages-tab"
-               href="{{ url_for("future_reservations") }}"
+               href="{{ url_for("reservations_management", date='a-venir') }}"
                aria-controls="v-pills-messages" aria-selected="false">Réservations à venir</a>
             <a class="nav-link{{ set_active_if(active_page, "products_management") }}" id="v-pills-settings-tab"
                href="{{ url_for("products_management") }}"
                aria-controls="v-pills-settings" aria-selected="false">Produits</a>
         </div>
     </div>
-    <div id="table-content" class="col-9">
-        {% block content %}
-        {% endblock %}
+    <div class="col-9">
+        {{ display_new_item_button(active_page) }}
+        <div id="table-content">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+<!-- Item Modal -->
+<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemModalTitle">Titre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="itemModalBody" class="modal-body">
 
-<!-- Modal -->
-<div class="modal fade" id="errorBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="errorBoxTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div id="errorBoxBody" class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="errorButton" class="btn btn-primary">Save changes</button>
-      </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
-  </div>
+
+</div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorBox" tabindex="-1" role="dialog" aria-labelledby="errorBoxLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorBoxTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="errorBoxBody" class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="errorButton" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -91,12 +117,12 @@
         crossorigin="anonymous"></script>
 
 <script src="{{ url_for("static", filename="script/script.js") }}"></script>
-    <script>
-        $(function () {
-            set_active_page("{{ active_page }}")
-            refresh("{{ active_page }}")
-        })
-    </script>
+<script>
+    $(function () {
+        set_active_page("{{ active_page }}")
+        refresh("{{ active_page }}")
+    })
+</script>
 </body>
 
 </html>

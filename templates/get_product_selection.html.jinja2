@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% macro display_selected(test,id) %}
+    {% if test==id %} selected{% endif %}
+{% endmacro %}
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<select oninput="update_price_displayed_reservation_form()" id="reservation_product" name="reservation_product"
+        class="custom-select" required>
+
+
+    {% if products|length==0 %}
+        <option disabled selected value="">Aucun produit disponible</option>
+    {% else %}
+        <option disabled {{ display_selected(selected_id,0) }} value="">Choisissez un produit</option>
+        {% for key, value in products.items() %}
+            {% if value['quantity']>0 %}
+                <option value="{{ key }}" {{ display_selected(selected_id,key) }}>{{ value['name'] }} ({{ value['quantity'] }} restants)</option>
+            {% else %}
+                <option disabled value="{{ key }}">{{ value['name'] }} - Tout est déjà réservé</option>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</select>
+<div class="invalid-feedback">
+    Choisissez un produit
+</div>
+</body>
+</html>
+
+
+
+

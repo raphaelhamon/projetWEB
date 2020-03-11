@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% macro display_selected(test,id) %}
+    {% if test==id %} selected{% endif %}
+{% endmacro %}
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<select name="reservation_user" class="custom-select" required>
+
+
+    {% if users|length==0 %}
+        <option disabled selected value="">Aucun résultat</option>
+    {% else %}
+        {% if empty %}
+            <option disabled value=""{{ display_selected(0,selected_id) }}>Recherchez un nom</option>
+        {% endif %}
+        {% for user in users %}
+            <option value="{{ user.id }}"{{ display_selected(user.id,selected_id) }}>{{ user.last_name }} {{ user.first_name }}</option>
+        {% endfor %}
+    {% endif %}
+</select>
+<div class="invalid-feedback">
+    Choisissez un utilisateur
+</div>
+</body>
+</html>
+
+
+
+

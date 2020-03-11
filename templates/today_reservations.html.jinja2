@@ -1,6 +1,5 @@
-
 {% macro display_pack_badge(pack) %}
-    {% if pack%}
+    {% if pack %}
         <span class="badge badge-light">Formule</span>
     {% else %}
         <span class="badge badge-info">Sandwich seul</span>
@@ -8,10 +7,18 @@
 {% endmacro %}
 
 {% macro selection_tab(test,tab) %}
-    {% if test==tab%}
+    {% if test==tab %}
         "true"
     {% else %}
         "false"
+    {% endif %}
+{% endmacro %}
+
+{% macro display_number_badge(list) %}
+    {% if list|length > 0 %}
+         <span class="badge badge-info">{{ list|length }}</span>
+        {% else %}
+        <span class="badge badge-light">{{ list|length }}</span>
     {% endif %}
 {% endmacro %}
 
@@ -23,150 +30,159 @@
 
 <body>
 
-    <!-- Nav bar -->
+<!-- Nav bar -->
 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link{% if tab=='not-paid-tab' %} active{% endif %}" id="not-paid-tab" data-toggle="tab" href="#not-paid" role="tab"
-               aria-controls="not-paid"
-               aria-selected={{selection_tab('not-paid-tab',tab)}}>Réservations non payées</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link{% if tab=='paid-tab' %} active{% endif %}" id="paid-tab" data-toggle="tab" href="#paid" role="tab" aria-controls="paid"
-               aria-selected={{selection_tab('paid-tab',tab)}}>Réservations payées & non récupérées</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link{% if tab=='collected-tab' %} active{% endif %}" id="collected-tab" data-toggle="tab" href="#collected" role="tab"
-               aria-controls="collected"
-               aria-selected={{selection_tab('collected-tab',tab)}}>Réservations terminées</a>
-        </li>
-    </ul>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link{% if tab=='not-paid-tab' %} active{% endif %}" id="not-paid-tab" data-toggle="tab"
+           href="#not-paid" role="tab"
+           aria-controls="not-paid"
+           aria-selected={{ selection_tab('not-paid-tab',tab) }}>Réservations non payées {{ display_number_badge(to_display["not_paid"]) }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link{% if tab=='paid-tab' %} active{% endif %}" id="paid-tab" data-toggle="tab" href="#paid"
+           role="tab" aria-controls="paid"
+           aria-selected={{ selection_tab('paid-tab',tab) }}>Réservations payées & non récupérées {{ display_number_badge(to_display["paid"]) }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link{% if tab=='collected-tab' %} active{% endif %}" id="collected-tab" data-toggle="tab"
+           href="#collected" role="tab"
+           aria-controls="collected"
+           aria-selected={{ selection_tab('collected-tab',tab) }}>Réservations terminées {{ display_number_badge(to_display["collected"]) }}</a>
+    </li>
+</ul>
 
 
+<div class="tab-content" id="myTabContent">
+    <!-- réservations non payées -->
+    <div class="tab-pane fade{% if tab=='not-paid-tab' %} show active{% endif %}" id="not-paid" role="tabpanel"
+         aria-labelledby="not-paid-tab">
+        <!-- Tableau de réservations -->
+        <table class="table table-hover text-center mt-2">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Num. badge</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Produit réservé</th>
+                <th scope="col">Formule</th>
+                <th scope="col">Montant à payer</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
 
-
-    <div class="tab-content" id="myTabContent">
-        <!-- réservations non payées -->
-        <div class="tab-pane fade{% if tab=='not-paid-tab' %} show active{% endif %}" id="not-paid" role="tabpanel" aria-labelledby="not-paid-tab">
-            <!-- Tableau de réservations -->
-            <table class="table table-hover text-center mt-2">
-                <thead>
+            {% for reservation in to_display["not_paid"] %}
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Num. badge</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Produit réservé</th>
-                    <th scope="col">Formule</th>
-                    <th scope="col">Montant à payer</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="row" class="align-middle">{{ reservation['id'] }}</th>
+                    <td class="align-middle">{{ reservation['badge_number'] }}</td>
+                    <td class="align-middle">{{ reservation['name'] }}</td>
+                    <td class="align-middle">{{ reservation['product_name'] }}</td>
+                    <td class="align-middle">
+                        <div class="custom-control custom-switch">
+                            <input{% if reservation['pack'] %} checked{% endif %} type="checkbox"
+                                                               class="custom-control-input"
+                                                               id="switchPack{{ reservation['id'] }}">
+                            <label class="custom-control-label" for="switchPack{{ reservation['id'] }}"></label>
+                        </div>
+                    </td>
+                    <td class="align-middle">
+                        {{ reservation['price'] }} €
+                    </td>
+                    <td class="align-middle">
+                        <button type="button" onclick="cash({{ reservation['id'] }})" class="btn btn-primary">
+                            Encaisser
+                        </button>
+                    </td>
+                    <td class="align-middle"></td>
                 </tr>
-                </thead>
-                <tbody>
 
-                {% for reservation in to_display["not_paid"] %}
-                    <tr>
-                        <th scope="row">{{ reservation['id'] }}</th>
-                        <td>{{ reservation['badge_number'] }}</td>
-                        <td>{{ reservation['name'] }}</td>
-                        <td>{{ reservation['product_name'] }}</td>
-                        <td>
-                            <div class="custom-control custom-switch">
-                                <input{% if reservation['pack'] %} checked{% endif %} type="checkbox" class="custom-control-input" id="switchPack{{ reservation['id'] }}">
-                                <label class="custom-control-label" for="switchPack{{ reservation['id'] }}"></label>
-                            </div>
-                        </td>
-                        <td>
-                            {{ reservation['price'] }} €
-                        </td>
-                        <td>
-                            <button type="button" onclick="cash({{ reservation['id'] }})" class="btn btn-primary">Encaisser</button>
-                        </td>
-                        <td></td>
-                    </tr>
+            {% endfor %}
 
-                {% endfor %}
-
-                </tbody>
-            </table>
+            </tbody>
+        </table>
 
 
-        </div>
-
-
-        <!-- réservations non récupérées -->
-        <div class="tab-pane fade{% if tab=='paid-tab' %} show active{% endif %}" id="paid" role="tabpanel" aria-labelledby="paid-tab">
-            <!-- Tableau de réservations -->
-            <table class="table table-hover text-center mt-2">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Num. badge</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Produit réservé</th>
-                    <th scope="col">Type de réservation</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-
-                {% for reservation in to_display["paid"] %}
-                    <tr>
-                        <th scope="row">{{ reservation['id'] }}</th>
-                        <td>{{ reservation['badge_number'] }}</td>
-                        <td>{{ reservation['name'] }}</td>
-                        <td>{{ reservation['product_name'] }}</td>
-                        <td>
-                            {{ display_pack_badge(reservation['pack']) }}
-                        </td>
-                        <td>
-                            <button type="button" onclick="collect({{ reservation['id'] }})" class="btn btn-primary">Récupéré</button>
-                        </td>
-                        <td></td>
-                    </tr>
-
-                {% endfor %}
-
-                </tbody>
-            </table>
-        </div>
-
-
-        <!-- réservations terminées -->
-        <div class="tab-pane fade{% if tab=='collected-tab' %} show active{% endif %}" id="collected" role="tabpanel" aria-labelledby="collected-tab">
-            <!-- Tableau de réservations -->
-            <table class="table table-hover text-center mt-2">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Num. badge</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Produit réservé</th>
-                    <th scope="col">Type de réservation</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-
-                {% for reservation in to_display["collected"] %}
-                    <tr>
-                        <th scope="row">{{ reservation['id'] }}</th>
-                        <td>{{ reservation['badge_number'] }}</td>
-                        <td>{{ reservation['name'] }}</td>
-                        <td>{{ reservation['product_name'] }}</td>
-                        <td>{{ display_pack_badge(reservation['pack']) }}</td>
-                        <td></td>
-                    </tr>
-
-                {% endfor %}
-
-                </tbody>
-            </table>
-
-        </div>
     </div>
 
+
+    <!-- réservations non récupérées -->
+    <div class="tab-pane fade{% if tab=='paid-tab' %} show active{% endif %}" id="paid" role="tabpanel"
+         aria-labelledby="paid-tab">
+        <!-- Tableau de réservations -->
+        <table class="table table-hover text-center mt-2">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Num. badge</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Produit réservé</th>
+                <th scope="col">Type de réservation</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for reservation in to_display["paid"] %}
+                <tr>
+                    <th scope="row">{{ reservation['id'] }}</th>
+                    <td>{{ reservation['badge_number'] }}</td>
+                    <td>{{ reservation['name'] }}</td>
+                    <td>{{ reservation['product_name'] }}</td>
+                    <td>
+                        {{ display_pack_badge(reservation['pack']) }}
+                    </td>
+                    <td>
+                        <button type="button" onclick="collect({{ reservation['id'] }})" class="btn btn-primary">
+                            Récupéré
+                        </button>
+                    </td>
+                    <td></td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- réservations terminées -->
+    <div class="tab-pane fade{% if tab=='collected-tab' %} show active{% endif %}" id="collected" role="tabpanel"
+         aria-labelledby="collected-tab">
+        <!-- Tableau de réservations -->
+        <table class="table table-hover text-center mt-2">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Num. badge</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Produit réservé</th>
+                <th scope="col">Type de réservation</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for reservation in to_display["collected"] %}
+                <tr>
+                    <th scope="row">{{ reservation['id'] }}</th>
+                    <td>{{ reservation['badge_number'] }}</td>
+                    <td>{{ reservation['name'] }}</td>
+                    <td>{{ reservation['product_name'] }}</td>
+                    <td>{{ display_pack_badge(reservation['pack']) }}</td>
+                    <td></td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
 
 
 </body>

@@ -22,20 +22,20 @@
 
                     {% for reservation in to_display %}
                         <tr>
-                            <th scope="row">{{ reservation['id'] }}</th>
-                            <td>{{ reservation['badge_number'] }}</td>
-                            <td>{{ reservation['name'] }}</td>
-                            <td>{{ reservation['product_name'] }} {{ reservation['date'] }}</td>
-                            <td>
+                            <th scope="row" class="align-middle">{{ reservation['id'] }}</th>
+                            <td class="align-middle">{{ reservation['badge_number'] }}</td>
+                            <td class="align-middle">{{ reservation['name'] }}</td>
+                            <td class="align-middle">{{ reservation['product_name'] }} {{ reservation['date'] }}</td>
+                            <td class="align-middle">
                                 <span class="badge badge-light">Formule</span>
                             </td>
-                            <td>
+                            <td class="align-middle">
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input" id="customSwitch{{ reservation['id'] }}">
                                     <label class="custom-control-label" for="customSwitch{{ reservation['id'] }}"></label>
                                 </div>
                             </td>
-                            <td>
+                            <td class="align-middle">
                                 <button type="button" class="btn btn-primary">Récupéré</button>
                             </td>
                         </tr>

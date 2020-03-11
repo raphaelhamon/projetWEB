@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+
+        <form class="needs-validation" method="post" novalidate name="product_form" enctype="multipart/form-data">
+            <input name="product_id" type="hidden"
+                   value="{% if product==None %}0{% else %}{{ product.id }}{% endif %}"/>
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemModalTitle">{% if product==None %}Nouveau produit{% else %}Modification
+                    de produit{% endif %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="itemModalBody" class="modal-body">
+                <div class="form-group row">
+                    <label for="product_name" class="col-sm-3 col-form-label text-right">Nom du produit</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" {% if product != None %}
+                               value="{{ product.name }}" {% endif %} id="product_name" name="product_name" required/>
+                        <div class="invalid-feedback">
+                            Donnez un nom au produit
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="product_description" class="col-sm-3 col-form-label text-right">Description</label>
+                    <div class="col-sm-9">
+                        <textarea type="text" class="form-control" id="product_description"
+                                  name="product_description">{% if product != None%}{{ product.description }}{% endif %}</textarea>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="product_quantity_available" class="col-sm-3 col-form-label text-right">Quantité
+                        disponible</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control" {% if product != None %}
+                               value="{{ product.quantity_available }}" {% endif %} id="product_quantity_available"
+                               name="product_quantity_available"
+                               required min="0"/>
+                        <div class="invalid-feedback">
+                            Indiquez la quantité disponible
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="product_price" class="col-sm-3 col-form-label text-right">Prix seul</label>
+                    <div class="col-sm-3">
+
+                        <div class="input-group">
+                            <input type="number" class="form-control" {% if product != None %}
+                                   value="{{ product.price }}" {% endif %} id="product_price" name="product_price"
+                                   required min="0" step="0.01" placeholder="0.00"/>
+                            <div class="input-group-append">
+                                <span class="input-group-text">€</span>
+                            </div>
+                            <div class="invalid-feedback">
+                                Indiquez un prix
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <label for="product_price_in_pack" class="col-sm-3 col-form-label text-right">Prix en
+                        formule</label>
+                    <div class="col-sm-3">
+
+                        <div class="input-group">
+                            <input type="number" class="form-control" {% if product != None %}
+                                   value="{{ product.price_in_pack }}" {% endif %} id="product_price_in_pack"
+                                   name="product_price_in_pack" required min="0" step="0.01" placeholder="0.00"/>
+                            <div class="input-group-append">
+                                <span class="input-group-text">€</span>
+                            </div>
+                            <div class="invalid-feedback">
+                                Indiquez un prix
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Image associée (jpg, jpeg, png)</label>
+                    <div class="col-sm-6">
+                        <label class="btn btn-primary" id="label_product_image" for="product_image">Choisissez un
+                            fichier</label>
+                        <input type="file"
+                               onchange="$('#product_image_name').text($('#product_image').val().replace('C:\\fakepath\\',''));"
+                               name="product_image" id="product_image" hidden/>
+                        <p class="d-inline" id="product_image_name"></p>
+
+                    </div>
+                    <div class="col-sm-3">
+                        {% if product != None and product.image_format is not none %}
+                            <img class="img-fluid rounded float-right"
+                                 src="{{ url_for('static', filename='img/product'+product.id|string+'.'+product.image_format) }}"/>
+                        {% endif %}
+                    </div>
+                    <!--
+                    <div class="col-sm-9">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="product_image" id="product_image">
+                            <label class="custom-file-label" for="product_image">Choisissez un fichier</label>
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    });
+
+</script>
+
+
+</body>
+</html>

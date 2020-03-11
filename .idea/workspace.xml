@@ -2,14 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e6970eb-d830-4cca-82b4-3c333c126333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/future_reservations.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/get_product_selection.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/get_user_selection.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/product_form.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/products.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reservation_form.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3040e10-9618-4189-ae68-99a811b7d30b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a3040e10-9618-4189-ae68-99a811b7d30b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/show_future_reservations.html.jinja2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/show_old_reservations.html.jinja2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/empty.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/empty.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/future_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/future_reservations.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/old_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/old_reservations.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/show_products.html.jinja2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/show_reservations.html.jinja2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/structure.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/structure.html.jinja2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/vide.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/empty.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/today_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/today_reservations.html.jinja2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +59,7 @@
         <item name="database" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="product: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="database" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="user: table" type="3d80ac25:SqliteImplModel$Table" />
+        <item name="reservation: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -81,6 +85,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.data.extractors.current.id" value="JSON-Groovy.json.groovy" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -122,7 +127,11 @@
       <workItem from="1581709058575" duration="5650000" />
       <workItem from="1581715405754" duration="22923000" />
       <workItem from="1582721040852" duration="21000" />
-      <workItem from="1582721560308" duration="32842000" />
+      <workItem from="1582721560308" duration="35813000" />
+      <workItem from="1583423556382" duration="50425000" />
+      <workItem from="1583828191876" duration="214000" />
+      <workItem from="1583830540178" duration="201000" />
+      <workItem from="1583831499558" duration="31440000" />
     </task>
     <task id="LOCAL-00001" summary="Version ok avec ajax pour évolution du statut des commandes">
       <created>1583365463308</created>
@@ -131,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583365463308</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Version fonctionnelle avec affichage des messages d'erreur en JS">
+      <created>1583405694663</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583405694663</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +158,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -150,57 +168,70 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Version ok avec ajax pour évolution du statut des commandes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version ok avec ajax pour évolution du statut des commandes" />
+    <MESSAGE value="Version fonctionnelle avec affichage des messages d'erreur en JS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version fonctionnelle avec affichage des messages d'erreur en JS" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582146178493">
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583423529583">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1582146178493" />
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1583423529583" />
+    <state x="408" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583529976032">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="408" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1583529976032" />
     <state x="966" y="294" key="#xdebugger.evaluate" timestamp="1582735193477">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="966" y="294" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1582735193477" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1583365463049">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1583405694487">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583365463049" />
-    <state width="1398" height="253" key="GridCell.Tab.0.bottom" timestamp="1583405648806">
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583405694487" />
+    <state width="1398" height="253" key="GridCell.Tab.0.bottom" timestamp="1583934979441">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="253" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583405648806" />
-    <state width="1398" height="253" key="GridCell.Tab.0.center" timestamp="1583405648805">
+    <state width="1398" height="253" key="GridCell.Tab.0.bottom/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916027" />
+    <state width="1398" height="253" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583934979441" />
+    <state width="1398" height="253" key="GridCell.Tab.0.center" timestamp="1583934979440">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="253" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583405648805" />
-    <state width="1398" height="253" key="GridCell.Tab.0.left" timestamp="1583405648802">
+    <state width="1398" height="253" key="GridCell.Tab.0.center/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916021" />
+    <state width="1398" height="253" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583934979440" />
+    <state width="1398" height="253" key="GridCell.Tab.0.left" timestamp="1583934979439">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="253" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583405648802" />
-    <state width="1398" height="253" key="GridCell.Tab.0.right" timestamp="1583405648805">
+    <state width="1398" height="253" key="GridCell.Tab.0.left/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916020" />
+    <state width="1398" height="253" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583934979439" />
+    <state width="1398" height="253" key="GridCell.Tab.0.right" timestamp="1583934979440">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="253" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583405648805" />
-    <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1583405648807">
+    <state width="1398" height="253" key="GridCell.Tab.0.right/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916026" />
+    <state width="1398" height="253" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583934979440" />
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1583934979443">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583405648807" />
-    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1583353825981" />
-    <state width="1398" height="253" key="GridCell.Tab.1.center" timestamp="1583405648807">
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694915924" />
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583934979443" />
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1583930502092" />
+    <state width="1398" height="253" key="GridCell.Tab.1.center" timestamp="1583934979442">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="253" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1583405648807" />
-    <state width="1398" height="253" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1583353825980" />
-    <state width="1398" height="253" key="GridCell.Tab.1.left" timestamp="1583405648806">
+    <state width="1398" height="253" key="GridCell.Tab.1.center/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694915922" />
+    <state width="1398" height="253" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1583934979442" />
+    <state width="1398" height="253" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1583930502091" />
+    <state width="1398" height="253" key="GridCell.Tab.1.left" timestamp="1583934979442">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="253" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1583405648806" />
-    <state width="1398" height="253" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1583353825980" />
-    <state width="1398" height="253" key="GridCell.Tab.1.right" timestamp="1583405648807">
+    <state width="1398" height="253" key="GridCell.Tab.1.left/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694915922" />
+    <state width="1398" height="253" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1583934979442" />
+    <state width="1398" height="253" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1583930502090" />
+    <state width="1398" height="253" key="GridCell.Tab.1.right" timestamp="1583934979443">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="253" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1583405648807" />
-    <state width="1398" height="253" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1583353825981" />
+    <state width="1398" height="253" key="GridCell.Tab.1.right/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694915923" />
+    <state width="1398" height="253" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1583934979443" />
+    <state width="1398" height="253" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1583930502091" />
     <state width="239" height="457" key="HiddenNamespacesPopup" timestamp="1581711361079">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -209,10 +240,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1581709094345" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1583365483105">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1583405705211">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1583365483105" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1583405705211" />
     <state x="626" y="352" width="350" height="220" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1581711279385">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -221,16 +252,36 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="600" y="316" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/0.0.1440.900@0.0.1440.900" timestamp="1581710723352" />
-    <state x="856" y="141" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1582146229042">
+    <state x="458" y="262" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1583428843763">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="856" y="141" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1440.900@0.0.1440.900" timestamp="1582146229042" />
+    <state x="458" y="262" key="com.intellij.database.dbimport.ImportUtil.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1583428843763" />
+    <state x="856" y="141" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1583758876132">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="856" y="141" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694227701" />
+    <state x="856" y="141" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1440.900@0.0.1440.900" timestamp="1583758876132" />
     <state x="378" y="85" width="683" height="729" key="find.popup" timestamp="1582145875143">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="85" width="683" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1582145875143" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1583920183283">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1583920183283" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1583367138794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1583934624874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

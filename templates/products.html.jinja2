@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+<!-- Tableau de produits -->
+<table class="table table-hover text-center mt-2">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Description</th>
+        <th scope="col">Qté disponible</th>
+        <th scope="col">Prix à l'unité</th>
+        <th scope="col">Prix en formule</th>
+        <th scope="col">Image associée</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for product in to_display %}
+        <tr>
+            <th class="align-middle" scope="row">{{ product['id'] }}</th>
+            <td class="align-middle" >{{ product['name'] }}</td>
+            <td class="align-middle" >{{ product['description'] }}</td>
+            <td class="align-middle" >{{ product['quantity_available'] }}</td>
+            <td class="align-middle" >{{ product['price'] }}</td>
+            <td class="align-middle" >{{ product['price_in_pack'] }}</td>
+            <td class="align-middle" >
+                {% if product['image_url'] =="" %}
+                Aucune
+                {% else %}
+                <img class="rounded image-product-management" src="{{ product['image_url'] }}"/>
+                {% endif %}
+            </td>
+            <td class="align-middle" >
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+
+                        <button class="dropdown-item" onclick="open_product_modal({{ product['id'] }})" type="button">Modifier</button>
+                        {% if product['image_url'] !="" %}
+                        <button class="dropdown-item" onclick="suppress_product_image({{ product['id'] }})" type="button">Supprimer l'image</button>
+                        {% endif %}
+                        <button class="dropdown-item" onclick="delete_product({{ product['id'] }},'{{ product['name'] }}')" type="button">Supprimer</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+
+</body>
+</html>
+
+
+
+

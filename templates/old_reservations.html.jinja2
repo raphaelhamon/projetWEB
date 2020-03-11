@@ -14,33 +14,47 @@
         <th scope="col">Nom</th>
         <th scope="col">Produit réservé</th>
         <th scope="col">Formule</th>
-        <th scope="col">Payé</th>
         <th scope="col">Date de récupération</th>
-        <th scope="col">Récupéré</th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
 
     {% for reservation in to_display %}
         <tr>
-            <th scope="row">{{ reservation['id'] }}</th>
-            <td>{{ reservation['badge_number'] }}</td>
-            <td>{{ reservation['name'] }}</td>
-            <td>{{ reservation['product_name'] }}</td>
-            <td>
+            <th scope="row" class="align-middle">{{ reservation['id'] }}</th>
+            <td class="align-middle">{{ reservation['badge_number'] }}</td>
+            <td class="align-middle">{{ reservation['name'] }}</td>
+            <td class="align-middle">{{ reservation['product_name'] }}</td>
+            <td class="align-middle">
+                {% if reservation['pack'] %}
                 <span class="badge badge-light">Formule</span>
+                {% else %}
+                <span class="badge badge-info">Seul</span>
+                {% endif %}
             </td>
-            <td>
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch{{ reservation['id'] }}">
-                    <label class="custom-control-label" for="customSwitch{{ reservation['id'] }}"></label>
-                </div>
-            </td>
-            <td>
+
+            <td class="align-middle">
                 {{ reservation['collect_date'] }}<br/> {{ reservation['collect_time'] }}
             </td>
-            <td>
-                <button type="button" class="btn btn-primary">Récupéré</button>
+            <td class="align-middle">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+
+                        <button class="dropdown-item" onclick="open_reservation_modal({{ reservation['id'] }})"
+                                type="button">
+                            Modifier
+                        </button>
+                        <button class="dropdown-item"
+                                onclick="delete_reservation({{ reservation['id'] }})" type="button">
+                            Supprimer
+                        </button>
+                    </div>
+                </div>
             </td>
         </tr>
 
