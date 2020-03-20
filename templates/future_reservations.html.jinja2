@@ -1,49 +1,83 @@
 <!DOCTYPE html>
+{% macro display_pack_badge(pack) %}
+    {% if pack %}
+        <span class="badge badge-pill badge-light">Formule</span>
+    {% else %}
+        <span class="badge badge-pill badge-info">Sandwich seul</span>
+    {% endif %}
+{% endmacro %}
+
+{% macro display_paid_badge(paid) %}
+    {% if paid %}
+        <span class="badge badge-pill badge-success">Payé</span>
+    {% else %}
+        <span class="badge badge-pill badge-danger">Non payé</span>
+    {% endif %}
+{% endmacro %}
+
 <html>
 <head>
     <meta charset="UTF-8">
 </head>
 
 <body>
+
 <!-- Tableau de réservations -->
-                <table class="table table-hover text-center mt-2">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Numéro de badge</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Produit réservé</th>
-                            <th scope="col">Formule</th>
-                            <th scope="col">Payé</th>
-                            <th scope="col">Récupéré</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+<table class="table table-hover text-center mt-2">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Numéro de badge</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Date</th>
+        <th scope="col">Produit réservé</th>
+        <th scope="col">Formule</th>
+        <th scope="col">Payé</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
 
-                    {% for reservation in to_display %}
-                        <tr>
-                            <th scope="row" class="align-middle">{{ reservation['id'] }}</th>
-                            <td class="align-middle">{{ reservation['badge_number'] }}</td>
-                            <td class="align-middle">{{ reservation['name'] }}</td>
-                            <td class="align-middle">{{ reservation['product_name'] }} {{ reservation['date'] }}</td>
-                            <td class="align-middle">
-                                <span class="badge badge-light">Formule</span>
-                            </td>
-                            <td class="align-middle">
-                                <div class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" id="customSwitch{{ reservation['id'] }}">
-                                    <label class="custom-control-label" for="customSwitch{{ reservation['id'] }}"></label>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <button type="button" class="btn btn-primary">Récupéré</button>
-                            </td>
-                        </tr>
+    {% for reservation in to_display %}
+        <tr>
+            <th scope="row" class="align-middle">{{ reservation['id'] }}</th>
+            <td class="align-middle">{{ reservation['badge_number'] }}</td>
+            <td class="align-middle">{{ reservation['name'] }}</td>
+            <td class="align-middle">{{ reservation['date'] }}</td>
+            <td class="align-middle">{{ reservation['product_name'] }}</td>
+            <td class="align-middle">
+                {{ display_pack_badge(reservation['pack']) }}
+            </td>
+            <td class="align-middle">
+                {{ display_paid_badge(reservation['paid']) }}
+            </td>
+            <td class="align-middle">
 
-                        {% endfor %}
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
 
-                    </tbody>
-                </table>
+                        <button class="dropdown-item" onclick="open_reservation_modal({{ reservation['id'] }})"
+                                type="button">
+                            Modifier
+                        </button>
+                        <button class="dropdown-item"
+                                onclick="delete_reservation({{ reservation['id'] }})" type="button">
+                            Supprimer
+                        </button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
 
 </body>
 </html>

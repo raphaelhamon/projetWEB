@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% macro display_if(cond, display) %}
-{% if cond %} {{ display }}{% endif %}
+    {% if cond %} {{ display }}{% endif %}
 {% endmacro %}
 <html>
 <head>
@@ -12,8 +12,6 @@
     <div class="modal-content">
 
         <form class="needs-validation" method="post" novalidate name="reservation_form">
-            <input name="reservation_collect_date" type="hidden"
-                   value="{% if reservation==None %}2020-03-06{% else %}{{ reservation.collect_date }}{% endif %}"/>
             <input name="reservation_id" type="hidden"
                    value="{% if reservation==None %}0{% else %}{{ reservation.id }}{% endif %}"/>
             <div class="modal-header">
@@ -25,7 +23,8 @@
             </div>
             <div id="itemModalBody" class="modal-body">
                 <div class="form-group row">
-                    <label for="reservation_user_name_search" class="col-sm-3 text-right col-form-label">Nom de famille</label>
+                    <label for="reservation_user_name_search" class="col-sm-3 text-right col-form-label">Nom de
+                        famille</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" oninput="update_user_selection()"
                                id="reservation_user_name_search">
@@ -33,6 +32,20 @@
                     <div id="reservation_user_selector" class="col-sm-5">
                     </div>
                 </div>
+
+                <div class="form-group row">
+                    <label for="reservation_user_name_search" class="col-sm-3 text-right col-form-label">Date de réservation</label>
+                    <div id="reservation_date_selector" class="col-sm-9">
+                        <select oninput="update_product_selection()" name="reservation_collect_date" class="custom-select" required>
+                            <option disabled{% if reservation==None %} selected{% endif %}>Choisissez une date</option>
+                            {% for date in dates %}
+                                <option value="{{ date['iso'] }}"{% if date['iso']==selected_date %} selected{% endif %}>{{ date['long_format'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label text-right">Produit réservé</label>
                     <div id="reservation_product_selector" class="col-sm-9">
@@ -42,10 +55,13 @@
                     <label class="col-sm-3 col-form-label text-right">Formule</label>
                     <div class="btn-group btn-group-toggle col-sm-4" data-toggle="buttons">
                         <label class="btn btn-outline-info{{ display_if(not reservation.pack,'active') }}">
-                            <input onchange="update_price_displayed_reservation_form()" type="radio" name="reservation_pack" value="no-pack"{{ display_if(not reservation.pack,'checked') }}>Produit seul
+                            <input onchange="update_price_displayed_reservation_form()" type="radio"
+                                   name="reservation_pack"
+                                   value="no-pack"{{ display_if(not reservation.pack,'checked') }}>Produit seul
                         </label>
                         <label class="btn btn-outline-info{{ display_if(reservation.pack,'active') }}">
-                            <input onchange="update_price_displayed_reservation_form()" type="radio" value="pack" name="reservation_pack"{{ display_if(reservation.pack,'checked') }}>Formule
+                            <input onchange="update_price_displayed_reservation_form()" type="radio" value="pack"
+                                   name="reservation_pack"{{ display_if(reservation.pack,'checked') }}>Formule
                         </label>
                     </div>
                     <label class="col-sm-2 col-form-label text-right">Prix</label>
@@ -55,10 +71,12 @@
                     <label class="col-sm-3 col-form-label text-right">Paiement</label>
                     <div class="btn-group btn-group-toggle col-sm-4" data-toggle="buttons">
                         <label class="btn btn-outline-info{{ display_if(not reservation.paid,'active') }}">
-                            <input type="radio" name="reservation_paid" value="not-paid"{{ display_if(not reservation.paid,'checked') }}>Non encaissé
+                            <input type="radio" name="reservation_paid"
+                                   value="not-paid"{{ display_if(not reservation.paid,'checked') }}>Non encaissé
                         </label>
                         <label class="btn btn-outline-info{{ display_if(reservation.paid,'active') }}">
-                            <input type="radio" name="reservation_paid" value="paid"{{ display_if(reservation.paid, 'checked') }}>Encaissé
+                            <input type="radio" name="reservation_paid"
+                                   value="paid"{{ display_if(reservation.paid, 'checked') }}>Encaissé
                         </label>
                     </div>
                 </div>

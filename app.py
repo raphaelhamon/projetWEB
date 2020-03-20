@@ -46,14 +46,14 @@ def find_reservations_by_collect_date(collect_date):
     begin = datetime.datetime.fromisoformat(collect_date.isoformat())
     delta = datetime.timedelta(days=1)
     end = begin + delta
-    return Reservation.query.filter(Reservation.collect_date <= end).filter(Reservation.collect_date >= begin).all()
+    return Reservation.query.filter(Reservation.collect_date < end).filter(Reservation.collect_date >= begin).all()
 
 
 def find_reservations_with_future_collect_date(today):
     begin = datetime.datetime.fromisoformat(today.isoformat())
     delta = datetime.timedelta(days=1)
     begin += delta
-    return Reservation.query.filter(Reservation.collect_date > begin).all()
+    return Reservation.query.filter(Reservation.collect_date >= begin).all()
 
 
 def find_reservations_with_old_collect_date(today):
@@ -101,6 +101,11 @@ def get_old_reservations():
             dict_res["price"] = product.price
         to_display += [dict_res]
     return to_display
+
+
+def get_list_available_quantity(product):
+    return [product.available_quantity_mon, product.available_quantity_tue, product.available_quantity_wed,
+            product.available_quantity_thu, product.available_quantity_fri]
 
 
 def get_today_reservations():
@@ -156,11 +161,10 @@ def get_products():
     products = find_products()
     to_display = []
     for product in products:
-
         dict_prod = {"id": product.id,
                      "name": product.name,
                      "price": product.price,
-                     "quantity_available": product.quantity_available}
+                     "available_quantity": get_list_available_quantity(product)}
         if product.price_in_pack == None:
             dict_prod["price_in_pack"] = "Aucun"
         else:
@@ -182,11 +186,15 @@ def product_form_is_valid(form):
     product_id = form.get("product_id", "")
     name = form.get("product_name", "")
     description = form.get("product_description", "")
-    quantity_available = form.get("product_quantity_available", "")
+    available_quantity_mon = form.get("product_available_quantity_mon", "")
+    available_quantity_tue = form.get("product_available_quantity_tue", "")
+    available_quantity_wed = form.get("product_available_quantity_wed", "")
+    available_quantity_thu = form.get("product_available_quantity_thu", "")
+    available_quantity_fri = form.get("product_available_quantity_fri", "")
     price = form.get("product_price", "")
     price_in_pack = form.get("product_price_in_pack", "")
 
-    if product_id is "" or name is "" or description is "" or price is "" or price_in_pack is "" or quantity_available is "":
+    if product_id is "" or name is "" or price is "" or price_in_pack is "" or available_quantity_mon is "" or available_quantity_tue is "" or available_quantity_wed is "" or available_quantity_thu is "" or available_quantity_fri is "":
         result = False
     else:
         result = True
@@ -197,8 +205,14 @@ def reservation_form_is_valid(form):
     reservation_id = form.get("reservation_id", "")
     user_id = form.get("reservation_user", "")
     product_id = form.get("reservation_product", "")
-
-    if reservation_id is "" or user_id is "" or product_id is "":
+    collect_date = form.get("reservation_collect_date", "")
+    bonus_product_id = 0
+    if reservation_id != '0':
+        old_reservation_product = find_reservation_by_id(int(reservation_id)).product_id
+        if int(product_id) == old_reservation_product:
+            bonus_product_id = int(product_id)
+    prod_dict = get_available_products(collect_date, bonus_product_id)
+    if reservation_id is "" or user_id is "" or product_id is "" or prod_dict[int(product_id)]['quantity'] <= 0:
         result = False
     else:
         result = True
@@ -207,13 +221,17 @@ def reservation_form_is_valid(form):
 
 def new_product(name,
                 description,
-                quantity_available,
+                available_quantities,
                 price,
                 price_in_pack,
                 file):
     product = Product(name=name,
                       description=description,
-                      quantity_available=quantity_available,
+                      available_quantity_mon=available_quantities[0],
+                      available_quantity_tue=available_quantities[1],
+                      available_quantity_wed=available_quantities[2],
+                      available_quantity_thu=available_quantities[3],
+                      available_quantity_fri=available_quantities[4],
                       price=price,
                       price_in_pack=price_in_pack)
     db.session.add(product)
@@ -231,14 +249,18 @@ def new_product(name,
 def update_product(id,
                    name,
                    description,
-                   quantity_available,
+                   available_quantities,
                    price,
                    price_in_pack,
                    file):
     product = find_product_by_id(id)
     product.name = name
     product.description = description
-    product.quantity_available = quantity_available
+    product.available_quantity_mon = available_quantities[0]
+    product.available_quantity_tue = available_quantities[1]
+    product.available_quantity_wed = available_quantities[2]
+    product.available_quantity_thu = available_quantities[3]
+    product.available_quantity_fri = available_quantities[4]
     product.price = price
     product.price_in_pack = price_in_pack
     if file:  # on vérifie qu'un fichier a bien été envoyé
@@ -287,6 +309,7 @@ def delete_product(id):
     db.session.delete(product)
     db.session.commit()
 
+
 def delete_reservation(id):
     reservation = find_reservation_by_id(id)
     db.session.delete(reservation)
@@ -297,26 +320,57 @@ def extension_is_valid(file_name):
     return '.' in file_name and file_name.rsplit('.', 1)[1] in ('png', 'jpg', 'jpeg')
 
 
-def get_products_available(date_iso, product_id_bonus):
-    date = datetime.date.fromisoformat(date_iso)
-    reservations = find_reservations_by_collect_date(date)
-    products = find_products()
+def get_available_products(date_iso, product_id_bonus):
     dict_prod = {}
-    for product in products:
-        if product.quantity_available > 0:
-            dict_prod[product.id] = {'name': product.name,
-                                     'quantity': product.quantity_available}
-    for reservation in reservations:
-        dict_prod[reservation.product_id]['quantity'] -= 1
-    if product_id_bonus != 0:
-        dict_prod[product_id_bonus]['quantity'] += 1
+    if date_iso != '0' and date_iso != 'null':
+        date = datetime.date.fromisoformat(date_iso)
+        reservations = find_reservations_by_collect_date(date)
+        products = find_products()
+        for product in products:
+            quantity = get_list_available_quantity(product)[date.weekday()]
+            if quantity > 0:
+                dict_prod[product.id] = {'name': product.name,
+                                         'quantity': quantity}
+        for reservation in reservations:
+            dict_prod[reservation.product_id]['quantity'] -= 1
+        if product_id_bonus != 0:
+            dict_prod[product_id_bonus]['quantity'] += 1
     return dict_prod
+
+
+def get_begin_reservations_date():
+    file = open("begin_reservation_date.txt", "r")
+    content = file.read()
+    file.close()
+    date = datetime.date.fromisoformat(content)
+    return date
+
+
+def today_reservation_enabled():
+    today = datetime.date.today()
+    return get_begin_reservations_date() <= today
+
+
+@app.route('/admin/<action>_today_reservations')
+def action_today_reservations(action):
+    if action == 'close':
+        today = datetime.date.today()
+        date = today + datetime.timedelta(days=1)
+    else:
+        date = datetime.date.today()
+    file = open("begin_reservation_date.txt", "w")
+    file.write(date.isoformat())
+    file.close()
+    return flask.render_template("empty.html.jinja2")
 
 
 @app.route('/admin/get_product_selection/<date_iso>/<int:reservation_id_selected>')
 def get_product_selection(date_iso, reservation_id_selected=0):
-    product_id=find_reservation_by_id(reservation_id_selected).product_id
-    products = get_products_available(date_iso, product_id)
+    if reservation_id_selected != 0:
+        product_id = find_reservation_by_id(reservation_id_selected).product_id
+    else:
+        product_id = 0
+    products = get_available_products(date_iso, product_id)
     return flask.render_template("get_product_selection.html.jinja2",
                                  products=products,
                                  selected_id=product_id)
@@ -385,6 +439,7 @@ def reservations_management(date):
                                    paid,
                                    collect_date)
         return flask.redirect(flask.url_for('reservations_management', date=date))
+    reservation_enabled = today_reservation_enabled()
     active_page = ''
     if date == 'passees':
         active_page = "old_reservations"
@@ -393,7 +448,8 @@ def reservations_management(date):
     elif date == 'du-jour':
         active_page = "today_reservations"
     return flask.render_template("structure.html.jinja2",
-                                 active_page=active_page)
+                                 active_page=active_page,
+                                 reservation_enabled=reservation_enabled)
 
 
 @app.route("/admin/produits", methods=["GET", "POST"])
@@ -403,7 +459,11 @@ def products_management():
             if flask.request.form.get("product_id") == '0':
                 new_product(flask.request.form.get("product_name"),
                             flask.request.form.get("product_description"),
-                            flask.request.form.get("product_quantity_available"),
+                            [flask.request.form.get("product_available_quantity_mon"),
+                             flask.request.form.get("product_available_quantity_tue"),
+                             flask.request.form.get("product_available_quantity_wed"),
+                             flask.request.form.get("product_available_quantity_thu"),
+                             flask.request.form.get("product_available_quantity_fri")],
                             flask.request.form.get("product_price"),
                             flask.request.form.get("product_price_in_pack"),
                             flask.request.files['product_image'])
@@ -411,7 +471,11 @@ def products_management():
                 update_product(flask.request.form.get("product_id"),
                                flask.request.form.get("product_name"),
                                flask.request.form.get("product_description"),
-                               flask.request.form.get("product_quantity_available"),
+                               [flask.request.form.get("product_available_quantity_mon"),
+                                flask.request.form.get("product_available_quantity_tue"),
+                                flask.request.form.get("product_available_quantity_wed"),
+                                flask.request.form.get("product_available_quantity_thu"),
+                                flask.request.form.get("product_available_quantity_fri")],
                                flask.request.form.get("product_price"),
                                flask.request.form.get("product_price_in_pack"),
                                flask.request.files['product_image'])
@@ -436,8 +500,6 @@ def suppress_product_image(id):
 def delete_product_page(id):
     delete_product(id)
     return flask.render_template("empty.html.jinja2")
-
-
 
 
 @app.route("/admin/delete_reservation/<int:id>", methods=["GET", "POST"])
@@ -480,28 +542,49 @@ def get_products_management_table():
 @app.route("/admin/get_product_form/", methods=["GET", "POST"])
 def get_product_form(id=None):
     if id == None:
-        product=None
+        product = None
     else:
         product = find_product_by_id(id)
     return flask.render_template("product_form.html.jinja2",
-                                     product=product)
+                                 product=product)
 
 
 @app.route("/admin/get_reservation_form/<int:id>", methods=["GET", "POST"])
 @app.route("/admin/get_reservation_form/", methods=["GET", "POST"])
-def get_reservation_form(id=None):
-    if id == None:
+def get_reservation_form(id=0):
+    dates = []
+    begin_reservations = get_begin_reservations_date()
+    today = datetime.date.today()
+    if today < begin_reservations:
+        first = begin_reservations
+    else:
+        first = today
+    day = first.isoweekday()
+    if day == 6:
+        date = first + datetime.timedelta(days=2)
+    elif day == 7:
+        date = first + datetime.timedelta(days=1)
+    else:
+        date = first
+    while date.isoweekday() < 6:
+        dates += [{'iso': date.isoformat(), 'long_format': date.strftime('%A %d/%m')}]
+        date += datetime.timedelta(days=1)
+    if id == 0:
         return flask.render_template("reservation_form.html.jinja2",
-                                     reservation=None)
+                                     reservation=None,
+                                     dates=dates)
     else:
         reservation = find_reservation_by_id(id)
+        selected_date = reservation.collect_date.strftime('%Y-%m-%d')
         if reservation.pack:
-            price=reservation.product.price_in_pack
+            price = reservation.product.price_in_pack
         else:
-            price=reservation.product.price
+            price = reservation.product.price
         return flask.render_template("reservation_form.html.jinja2",
                                      reservation=reservation,
-                                     price=price)
+                                     price=price,
+                                     dates=dates,
+                                     selected_date=selected_date)
 
 
 @app.route("/admin/cash/<id>", methods=["GET", "POST"])

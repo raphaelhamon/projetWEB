@@ -5,7 +5,13 @@
     {% if page=='products_management' %}
         <button type="button" class="btn mb-3 btn-success" onclick="open_product_modal()">Nouveau produit</button>
     {% elif page=='today_reservations' or page=='old_reservations' or page=='future_reservations' %}
-        <button type="button" class="btn mb-3 btn-success" onclick="open_reservation_modal()">Nouvelle réservation</button>
+        <button type="button" class="btn mb-3 btn-success" onclick="open_reservation_modal()">Nouvelle réservation
+        </button>
+        {% if reservation_enabled %}
+            <button id="action_reservations" type="button" class="btn mb-3 btn-danger" onclick="close_reservations()">Clôturer les réservations</button>
+        {% else %}
+            <button id="action_reservations" type="button" class="btn mb-3 btn-outline-danger" onclick="open_reservations()">Rouvrir les réservations</button>
+        {% endif %}
     {% endif %}
 {% endmacro %}
 

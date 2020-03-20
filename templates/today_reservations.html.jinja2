@@ -1,8 +1,16 @@
 {% macro display_pack_badge(pack) %}
     {% if pack %}
-        <span class="badge badge-light">Formule</span>
+        <span class="badge badge-pill badge-light">Formule</span>
     {% else %}
-        <span class="badge badge-info">Sandwich seul</span>
+        <span class="badge badge-pill badge-info">Sandwich seul</span>
+    {% endif %}
+{% endmacro %}
+
+{% macro display_paid_badge(paid) %}
+    {% if paid %}
+        <span class="badge badge-pill badge-success">Payé</span>
+    {% else %}
+        <span class="badge badge-pill badge-danger">Non payé</span>
     {% endif %}
 {% endmacro %}
 
@@ -16,8 +24,8 @@
 
 {% macro display_number_badge(list) %}
     {% if list|length > 0 %}
-         <span class="badge badge-info">{{ list|length }}</span>
-        {% else %}
+        <span class="badge badge-info">{{ list|length }}</span>
+    {% else %}
         <span class="badge badge-light">{{ list|length }}</span>
     {% endif %}
 {% endmacro %}
@@ -37,18 +45,21 @@
         <a class="nav-link{% if tab=='not-paid-tab' %} active{% endif %}" id="not-paid-tab" data-toggle="tab"
            href="#not-paid" role="tab"
            aria-controls="not-paid"
-           aria-selected={{ selection_tab('not-paid-tab',tab) }}>Réservations non payées {{ display_number_badge(to_display["not_paid"]) }}</a>
+           aria-selected={{ selection_tab('not-paid-tab',tab) }}>Réservations non
+            payées {{ display_number_badge(to_display["not_paid"]) }}</a>
     </li>
     <li class="nav-item">
         <a class="nav-link{% if tab=='paid-tab' %} active{% endif %}" id="paid-tab" data-toggle="tab" href="#paid"
            role="tab" aria-controls="paid"
-           aria-selected={{ selection_tab('paid-tab',tab) }}>Réservations payées & non récupérées {{ display_number_badge(to_display["paid"]) }}</a>
+           aria-selected={{ selection_tab('paid-tab',tab) }}>Réservations payées & non
+            récupérées {{ display_number_badge(to_display["paid"]) }}</a>
     </li>
     <li class="nav-item">
         <a class="nav-link{% if tab=='collected-tab' %} active{% endif %}" id="collected-tab" data-toggle="tab"
            href="#collected" role="tab"
            aria-controls="collected"
-           aria-selected={{ selection_tab('collected-tab',tab) }}>Réservations terminées {{ display_number_badge(to_display["collected"]) }}</a>
+           aria-selected={{ selection_tab('collected-tab',tab) }}>Réservations
+            terminées {{ display_number_badge(to_display["collected"]) }}</a>
     </li>
 </ul>
 
@@ -80,12 +91,7 @@
                     <td class="align-middle">{{ reservation['name'] }}</td>
                     <td class="align-middle">{{ reservation['product_name'] }}</td>
                     <td class="align-middle">
-                        <div class="custom-control custom-switch">
-                            <input{% if reservation['pack'] %} checked{% endif %} type="checkbox"
-                                                               class="custom-control-input"
-                                                               id="switchPack{{ reservation['id'] }}">
-                            <label class="custom-control-label" for="switchPack{{ reservation['id'] }}"></label>
-                        </div>
+                        {{ display_pack_badge(reservation['paid']) }}
                     </td>
                     <td class="align-middle">
                         {{ reservation['price'] }} €
@@ -95,7 +101,26 @@
                             Encaisser
                         </button>
                     </td>
-                    <td class="align-middle"></td>
+                    <td class="align-middle">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+
+                                <button class="dropdown-item" onclick="open_reservation_modal({{ reservation['id'] }})"
+                                        type="button">
+                                    Modifier
+                                </button>
+                                <button class="dropdown-item"
+                                        onclick="delete_reservation({{ reservation['id'] }})" type="button">
+                                    Supprimer
+                                </button>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
 
             {% endfor %}
@@ -120,7 +145,6 @@
                 <th scope="col">Produit réservé</th>
                 <th scope="col">Type de réservation</th>
                 <th scope="col"></th>
-                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -139,7 +163,6 @@
                             Récupéré
                         </button>
                     </td>
-                    <td></td>
                 </tr>
 
             {% endfor %}
@@ -173,7 +196,13 @@
                     <td>{{ reservation['name'] }}</td>
                     <td>{{ reservation['product_name'] }}</td>
                     <td>{{ display_pack_badge(reservation['pack']) }}</td>
-                    <td></td>
+                    <td>
+                        <button type="button" onclick="delete_reservation({{ reservation['id'] }})"
+                                class="btn btn-danger">
+                            Supprimer
+                        </button>
+
+                    </td>
                 </tr>
 
             {% endfor %}

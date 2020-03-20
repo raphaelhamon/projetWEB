@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+{% macro display_pack_badge(pack) %}
+    {% if pack %}
+        <span class="badge badge-pill badge-light">Formule</span>
+    {% else %}
+        <span class="badge badge-pill badge-info">Sandwich seul</span>
+    {% endif %}
+{% endmacro %}
+
+{% macro display_paid_badge(paid) %}
+    {% if paid %}
+        <span class="badge badge-pill badge-success">Payé</span>
+    {% else %}
+        <span class="badge badge-pill badge-danger">Non payé</span>
+    {% endif %}
+{% endmacro %}
 <html>
 <head>
     <meta charset="UTF-8">
@@ -27,34 +42,16 @@
             <td class="align-middle">{{ reservation['name'] }}</td>
             <td class="align-middle">{{ reservation['product_name'] }}</td>
             <td class="align-middle">
-                {% if reservation['pack'] %}
-                <span class="badge badge-light">Formule</span>
-                {% else %}
-                <span class="badge badge-info">Seul</span>
-                {% endif %}
+                {{ display_pack_badge(reservation['pack']) }}
             </td>
 
             <td class="align-middle">
                 {{ reservation['collect_date'] }}<br/> {{ reservation['collect_time'] }}
             </td>
             <td class="align-middle">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        Action
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-
-                        <button class="dropdown-item" onclick="open_reservation_modal({{ reservation['id'] }})"
-                                type="button">
-                            Modifier
-                        </button>
-                        <button class="dropdown-item"
-                                onclick="delete_reservation({{ reservation['id'] }})" type="button">
-                            Supprimer
-                        </button>
-                    </div>
-                </div>
+                <button type="button" onclick="delete_reservation({{ reservation['id'] }})" class="btn btn-danger">
+                    Supprimer
+                </button>
             </td>
         </tr>
 

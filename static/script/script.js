@@ -6,16 +6,18 @@ function set_active_page(new_active_page) {
 
 function refresh() {
     if (active_page == 'today_reservations') {
-        active_page += get_tab()
+        active_page_tab = active_page + get_tab()
+    }else{
+        active_page_tab=active_page
     }
-    $('#table-content').load('/././admin/get_' + active_page, function () {
+    $('#table-content').load('/././admin/get_' + active_page_tab, function () {
         //alert('Mise à jour de ' + active_page + ' réussie');
     });
 }
 
 function get_tab() {
     tabs = $('[role="tab"]')
-    let tab = "#not-paid"
+    let tab = ""
     for (let i = 0; i < tabs.length; i++) {
         if (tabs[i].ariaSelected == "true") {
             tab = "/" + tabs[i].id;
@@ -113,7 +115,11 @@ function update_user_selection(id = 0) {
     });
 }
 
-function update_product_selection(date_iso, id = 0) {
+function update_product_selection(id = 0) {
+    date_iso=$('#reservation_date_selector > select').val()
+    if(date_iso==""){
+        date_iso=0
+    }
     $('#reservation_product_selector').load('/././admin/get_product_selection/' + date_iso + '/' + id, function () {
     });
 }
@@ -143,7 +149,7 @@ function open_product_modal(id = '') {
 function open_reservation_modal(id = 0) {
     $('#itemModal').load('/././admin/get_reservation_form/' + id, function () {
         update_user_selection(id)
-        update_product_selection('2020-03-06',id)
+        update_product_selection(id)
     });
     $('#itemModal').modal('show');
 
@@ -157,6 +163,42 @@ function update_price_displayed_reservation_form() {
             //alert('Mise à jour de ' + active_page + ' réussie');
         });
     }
+}
+
+
+function close_reservations(){
+    $.ajax({
+        type: 'GET',
+        url: '/././admin/close_today_reservations',
+        timeout: 3000,
+        success: function () {
+            $('#action_reservations').addClass('btn-outline-danger')
+            $('#action_reservations').removeClass('btn-danger')
+            $('#action_reservations').text('Rouvrir les réservations')
+            $("#action_reservations").attr("onclick","open_reservations()");
+        },
+        error: function () {
+            display_error("Erreur", "L'action n'a pas pu être réalisée")
+        }
+    });
+}
+
+
+function open_reservations(){
+    $.ajax({
+        type: 'GET',
+        url: '/././admin/open_today_reservations',
+        timeout: 3000,
+        success: function () {
+            $('#action_reservations').addClass('btn-danger')
+            $('#action_reservations').removeClass('btn-outline-danger')
+            $('#action_reservations').text('Clôturer les réservations')
+            $("#action_reservations").attr("onclick","close_reservations()");
+        },
+        error: function () {
+            display_error("Erreur", "L'action n'a pas pu être réalisée")
+        }
+    });
 }
 
 
