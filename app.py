@@ -56,9 +56,19 @@ def find_reservations_with_future_collect_date(today):
     return Reservation.query.filter(Reservation.collect_date >= begin).all()
 
 
+def find_future_reservations_by_user_id(today, id):
+    begin = datetime.datetime.fromisoformat(today.isoformat())
+    return Reservation.query.filter(Reservation.collect_date >= begin).filter(Reservation.user_id==id).all()
+
+
 def find_reservations_with_old_collect_date(today):
     end = datetime.datetime.fromisoformat(today.isoformat())
     return Reservation.query.filter(Reservation.collect_date < end).all()
+
+
+def find_old_reservations_by_user_id(today, id):
+    end = datetime.datetime.fromisoformat(today.isoformat())
+    return Reservation.query.filter(Reservation.collect_date < end).filter(Reservation.user_id==id).all()
 
 
 def find_user_by_id(id):
@@ -83,6 +93,28 @@ def find_products():
 
 def get_old_reservations():
     reservations = find_reservations_with_old_collect_date(datetime.date.today())
+    to_display = []
+    for reservation in reservations:
+        user = find_user_by_id(reservation.user_id)
+        product = find_product_by_id(reservation.product_id)
+
+        dict_res = {"id": reservation.id,
+                    "name": user.last_name + " " + user.first_name,
+                    "badge_number": user.badge_number,
+                    "product_name": product.name,
+                    "pack": reservation.pack,
+                    "collect_date": reservation.collect_date.strftime("%a %d/%m/%Y"),
+                    "collect_time": reservation.collect_date.strftime("%H:%M")}
+        if reservation.pack:
+            dict_res["price"] = product.price_in_pack
+        else:
+            dict_res["price"] = product.price
+        to_display += [dict_res]
+    return to_display
+
+
+def get_old_reservations_by_user_id(id):
+    reservations = find_old_reservations_by_user_id(datetime.date.today(), id)
     to_display = []
     for reservation in reservations:
         user = find_user_by_id(reservation.user_id)
@@ -138,6 +170,26 @@ def get_today_reservations():
 
 def get_future_reservations():
     reservations = find_reservations_with_future_collect_date(datetime.date.today())
+    to_display = []
+    for reservation in reservations:
+        user = find_user_by_id(reservation.user_id)
+        product = find_product_by_id(reservation.product_id)
+
+        dict_res = {"id": reservation.id,
+                    "name": user.last_name + " " + user.first_name,
+                    "badge_number": user.badge_number,
+                    "product_name": product.name,
+                    "pack": reservation.pack,
+                    "date": reservation.collect_date.strftime("%a %d/%m/%Y")}
+        if reservation.pack:
+            dict_res["price"] = product.price_in_pack
+        else:
+            dict_res["price"] = product.price
+        to_display += [dict_res]
+    return to_display
+
+def get_future_reservations_by_user_id(id):
+    reservations = find_future_reservations_by_user_id(datetime.date.today(), id)
     to_display = []
     for reservation in reservations:
         user = find_user_by_id(reservation.user_id)
@@ -330,7 +382,11 @@ def get_available_products(date_iso, product_id_bonus):
             quantity = get_list_available_quantity(product)[date.weekday()]
             if quantity > 0:
                 dict_prod[product.id] = {'name': product.name,
-                                         'quantity': quantity}
+                                         'quantity': quantity,
+                                         'image_format': product.image_format,
+                                         'description': product.description,
+                                         'price': product.price,
+                                         'price_in_pack': product.price_in_pack}
         for reservation in reservations:
             dict_prod[reservation.product_id]['quantity'] -= 1
         if product_id_bonus != 0:
@@ -350,6 +406,27 @@ def today_reservation_enabled():
     today = datetime.date.today()
     return get_begin_reservations_date() <= today
 
+
+@app.route('/reserver')
+def user_reservation_page():
+    return flask.render_template("user_reserve.html.jinja2",
+                                 active_page="user_reservation")
+
+
+@app.route('/mes-reservations')
+def user_future_reservations_page():
+    to_display = get_future_reservations_by_user_id(1)
+    return flask.render_template("user_reservations.html.jinja2",
+                                 to_display=to_display,
+                                 active_page="user_future_reservations")
+
+
+@app.route('/reservations-passees')
+def user_old_reservations_page():
+    to_display = get_old_reservations_by_user_id(1)
+    return flask.render_template("user_old_reservations.html.jinja2",
+                                 to_display=to_display,
+                                 active_page="user_old_reservations")
 
 @app.route('/admin/<action>_today_reservations')
 def action_today_reservations(action):
@@ -566,9 +643,10 @@ def get_reservation_form(id=0):
         date = first + datetime.timedelta(days=1)
     else:
         date = first
-    while date.isoweekday() < 6:
-        dates += [{'iso': date.isoformat(), 'long_format': date.strftime('%A %d/%m')}]
-        date += datetime.timedelta(days=1)
+    if day < 5 or today.isoweekday() != 5:
+        while date.isoweekday() < 6:
+            dates += [{'iso': date.isoformat(), 'long_format': date.strftime('%A %d/%m')}]
+            date += datetime.timedelta(days=1)
     if id == 0:
         return flask.render_template("reservation_form.html.jinja2",
                                      reservation=None,

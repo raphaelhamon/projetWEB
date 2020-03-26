@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e6970eb-d830-4cca-82b4-3c333c126333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/begin_reservation_date.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3040e10-9618-4189-ae68-99a811b7d30b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a3040e10-9618-4189-ae68-99a811b7d30b.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_old_reservations.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_reservations.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_reserve.html.jinja2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_structure.html.jinja2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/future_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/future_reservations.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/old_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/old_reservations.html.jinja2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product_form.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_form.html.jinja2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products.html.jinja2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reservation_form.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation_form.html.jinja2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/structure.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/structure.html.jinja2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/today_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/today_reservations.html.jinja2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +124,7 @@
       <workItem from="1583830540178" duration="201000" />
       <workItem from="1583831499558" duration="53240000" />
       <workItem from="1584596087650" duration="5127000" />
-      <workItem from="1584682451856" duration="1099000" />
+      <workItem from="1584682451856" duration="12921000" />
     </task>
     <task id="LOCAL-00001" summary="Version ok avec ajax pour évolution du statut des commandes">
       <created>1583365463308</created>
@@ -161,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583936758135</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Site fini">
+      <created>1584684475163</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584684475163</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +184,8 @@
     <MESSAGE value="Version ok avec ajax pour évolution du statut des commandes" />
     <MESSAGE value="Version fonctionnelle avec affichage des messages d'erreur en JS" />
     <MESSAGE value="Version fonctionnelle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version fonctionnelle" />
+    <MESSAGE value="Site fini" />
+    <option name="LAST_COMMIT_MESSAGE" value="Site fini" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584032185510">
@@ -199,53 +200,53 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="966" y="294" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1582735193477" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1583936757974">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1584684474858">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583936757974" />
-    <state width="1398" height="253" key="GridCell.Tab.0.bottom" timestamp="1584684442294">
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584684474858" />
+    <state width="1398" height="209" key="GridCell.Tab.0.bottom" timestamp="1585214436799">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.0.bottom/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916027" />
-    <state width="1398" height="253" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1584684442294" />
-    <state width="1398" height="253" key="GridCell.Tab.0.center" timestamp="1584684442292">
+    <state width="1398" height="209" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585214436799" />
+    <state width="1398" height="209" key="GridCell.Tab.0.center" timestamp="1585214436797">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.0.center/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916021" />
-    <state width="1398" height="253" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1584684442292" />
-    <state width="1398" height="253" key="GridCell.Tab.0.left" timestamp="1584684442291">
+    <state width="1398" height="209" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585214436797" />
+    <state width="1398" height="209" key="GridCell.Tab.0.left" timestamp="1585214436797">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.0.left/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916020" />
-    <state width="1398" height="253" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1584684442291" />
-    <state width="1398" height="253" key="GridCell.Tab.0.right" timestamp="1584684442293">
+    <state width="1398" height="209" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585214436797" />
+    <state width="1398" height="209" key="GridCell.Tab.0.right" timestamp="1585214436798">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.0.right/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916026" />
-    <state width="1398" height="253" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1584684442293" />
-    <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1584684442297">
+    <state width="1398" height="209" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585214436798" />
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1585200874259">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.1.bottom/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694915924" />
-    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1584684442297" />
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585200874259" />
     <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1584035470949" />
-    <state width="1398" height="253" key="GridCell.Tab.1.center" timestamp="1584684442295">
+    <state width="1398" height="253" key="GridCell.Tab.1.center" timestamp="1585200874257">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.1.center/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694915922" />
-    <state width="1398" height="253" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1584684442295" />
+    <state width="1398" height="253" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1585200874257" />
     <state width="1398" height="253" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1584035470947" />
-    <state width="1398" height="253" key="GridCell.Tab.1.left" timestamp="1584684442295">
+    <state width="1398" height="253" key="GridCell.Tab.1.left" timestamp="1585200874257">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.1.left/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694915922" />
-    <state width="1398" height="253" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1584684442295" />
+    <state width="1398" height="253" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1585200874257" />
     <state width="1398" height="253" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1584035470946" />
-    <state width="1398" height="253" key="GridCell.Tab.1.right" timestamp="1584684442296">
+    <state width="1398" height="253" key="GridCell.Tab.1.right" timestamp="1585200874258">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.1.right/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694915923" />
-    <state width="1398" height="253" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1584684442296" />
+    <state width="1398" height="253" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1585200874258" />
     <state width="1398" height="253" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1584035470948" />
     <state width="239" height="457" key="HiddenNamespacesPopup" timestamp="1581711361079">
       <screen x="0" y="0" width="1440" height="900" />
@@ -255,10 +256,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1581709094345" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1583936762052">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1584684478247">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1583936762052" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1584684478247" />
     <state x="626" y="352" width="350" height="220" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1581711279385">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -297,6 +298,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1584684346585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1585200959342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

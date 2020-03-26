@@ -46,7 +46,7 @@
             </td>
 
             <td class="align-middle">
-                {{ reservation['collect_date'] }}<br/> {{ reservation['collect_time'] }}
+                {{ reservation['collect_date'] }}<br/> {% if reservation['collected'] %}{{ reservation['collect_time'] }}{% else %}<span class="badge badge-pill badge-danger">Non récupéré</span>{% if not reservation['paid'] %}<br/><span class="badge badge-pill badge-danger">Non payé</span>{% endif %}{% endif %}
             </td>
             <td class="align-middle">
                 <button type="button" onclick="delete_reservation({{ reservation['id'] }})" class="btn btn-danger">

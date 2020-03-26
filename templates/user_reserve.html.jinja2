@@ -1,0 +1,55 @@
+{% extends 'user_structure.html.jinja2' %}
+{% block content %}
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" checked> Active
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2"> Radio
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3"> Radio
+  </label>
+</div>
+
+
+
+
+
+    <!-- Les sandwichs-->
+    <div class="row">
+        <div class="col-4">
+            <div class="card ml-5">
+                <img class="card-img-top" src="Sandwich1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Le classique</h5>
+                    <p class="card-text">Jambon, beurre et emmental, le classique.</p>
+                    <p class="card-text"> Prix : 3,39€ (seul), 5,60€ (en formule).</p>
+                    <a href="#" class="btn btn-reservation ">Réserver</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <img class="card-img-top" src="Sandwich1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Le Poulet Crudité</h5>
+                    <p class="card-text">blablabla</p>
+                    <a href="#" class="btn btn-reservation ">Réserver</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card mr-5">
+                <img class="card-img-top" src="Sandwich1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">N302</h5>
+                    <p class="card-text">N302</p>
+                    <a href="#" class="btn btn-reservation ">Réserver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

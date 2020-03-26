@@ -1,0 +1,47 @@
+{% extends 'user_structure.html.jinja2' %}
+{% block content %}
+
+    <!-- Tableau de réservations -->
+    <table class="table table-hover text-center mt-2">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Num. badge</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Produit réservé</th>
+            <th scope="col">Formule</th>
+            <th scope="col">Date de récupération</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for reservation in to_display %}
+            <tr>
+                <th scope="row" class="align-middle">{{ reservation['id'] }}</th>
+                <td class="align-middle">{{ reservation['badge_number'] }}</td>
+                <td class="align-middle">{{ reservation['name'] }}</td>
+                <td class="align-middle">{{ reservation['product_name'] }}</td>
+                <td class="align-middle">
+                    {{ display_pack_badge(reservation['pack']) }}
+                </td>
+
+                <td class="align-middle">
+                    {{ reservation['collect_date'] }}<br/>
+                    {% if reservation['collected'] %}{{ reservation['collect_time'] }}{% else %}
+                        <span class="badge badge-pill badge-danger">Non récupéré</span>{% if not reservation['paid'] %}
+                        <br/><span class="badge badge-pill badge-danger">Non payé</span>{% endif %}{% endif %}
+                </td>
+                <td class="align-middle">
+                    <button type="button" onclick="delete_reservation({{ reservation['id'] }})" class="btn btn-danger">
+                        Supprimer
+                    </button>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
