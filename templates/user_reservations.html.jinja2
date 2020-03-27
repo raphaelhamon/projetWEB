@@ -6,10 +6,10 @@
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Num. badge</th>
-            <th scope="col">Nom</th>
             <th scope="col">Produit réservé</th>
             <th scope="col">Formule</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Date de réservation</th>
             <th scope="col">Date de récupération</th>
             <th scope="col"></th>
         </tr>
@@ -19,12 +19,13 @@
         {% for reservation in to_display %}
             <tr>
                 <th scope="row" class="align-middle">{{ reservation['id'] }}</th>
-                <td class="align-middle">{{ reservation['badge_number'] }}</td>
-                <td class="align-middle">{{ reservation['name'] }}</td>
                 <td class="align-middle">{{ reservation['product_name'] }}</td>
                 <td class="align-middle">
                     {{ display_pack_badge(reservation['pack']) }}
                 </td>
+                <td class="align-middle">{{ reservation['price'] }}</td>
+                <td class="align-middle">{{ reservation['reservation_date'] }}</td>
+
 
                 <td class="align-middle">
                     {{ reservation['collect_date'] }}<br/>

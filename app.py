@@ -2,7 +2,6 @@ import os
 from copy import copy
 
 import flask
-from flask_json import as_json
 from werkzeug.utils import secure_filename
 
 from database.database import db, init_database
@@ -125,6 +124,8 @@ def get_old_reservations_by_user_id(id):
                     "badge_number": user.badge_number,
                     "product_name": product.name,
                     "pack": reservation.pack,
+                    "reservation_date": reservation.reservation_time.strftime("%a %d/%m/%Y"),
+                    "reservation_time": reservation.reservation_time.strftime("%H:%M"),
                     "collect_date": reservation.collect_date.strftime("%a %d/%m/%Y"),
                     "collect_time": reservation.collect_date.strftime("%H:%M")}
         if reservation.pack:

@@ -1,4 +1,11 @@
 <!doctype html>
+{% macro display_pack_badge(pack) %}
+    {% if pack %}
+        <span class="badge badge-pill badge-light">Formule</span>
+    {% else %}
+        <span class="badge badge-pill badge-info">Sandwich seul</span>
+    {% endif %}
+{% endmacro %}
 <html lang="en">
 {% macro set_active_if(variable, name) %}
     {% if variable == name %} active{% endif %}
@@ -41,7 +48,7 @@
             </li>
         </ul>
         <span class="navbar-text">
-            Raphaël Hamon
+            Antinéa Jouannis
             <button class="btn btn-outline-light" type="button">Se déconnecter</button>
         </span>
 

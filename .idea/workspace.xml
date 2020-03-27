@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e6970eb-d830-4cca-82b4-3c333c126333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/user_old_reservations.html.jinja2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user_reservations.html.jinja2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user_reserve.html.jinja2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user_structure.html.jinja2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/old_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/old_reservations.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_old_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_old_reservations.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_reservations.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_reservations.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_structure.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_structure.html.jinja2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +60,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="21305857-0aa3-4c72-a9a9-e5cfeb0c5082" />
+  <component name="JupyterTrust" id="e76a1903-7cf6-4fb8-813e-f07f1a15d817" />
   <component name="ProjectId" id="1Xi3Q9onOHgUNGBMwKYRMdyTM2R" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -77,7 +73,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.id" value="JSON-Groovy.json.groovy" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -94,7 +90,7 @@
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -125,6 +121,7 @@
       <workItem from="1583831499558" duration="53240000" />
       <workItem from="1584596087650" duration="5127000" />
       <workItem from="1584682451856" duration="12921000" />
+      <workItem from="1585215038465" duration="8053000" />
     </task>
     <task id="LOCAL-00001" summary="Version ok avec ajax pour évolution du statut des commandes">
       <created>1583365463308</created>
@@ -196,6 +193,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="408" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1583936707151" />
+    <state x="0" y="107" key="#projetWEB" timestamp="1585215161182">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="0" y="107" key="#projetWEB/0.23.1440.823@0.23.1440.823" timestamp="1585215161182" />
     <state x="966" y="294" key="#xdebugger.evaluate" timestamp="1582735193477">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -204,26 +205,30 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584684474858" />
-    <state width="1398" height="209" key="GridCell.Tab.0.bottom" timestamp="1585214436799">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="628" height="180" key="GridCell.Tab.0.bottom" timestamp="1585284062983">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.0.bottom/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916027" />
     <state width="1398" height="209" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1585214436799" />
-    <state width="1398" height="209" key="GridCell.Tab.0.center" timestamp="1585214436797">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="628" height="180" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1585284062983" />
+    <state width="628" height="180" key="GridCell.Tab.0.center" timestamp="1585284062980">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.0.center/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916021" />
     <state width="1398" height="209" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1585214436797" />
-    <state width="1398" height="209" key="GridCell.Tab.0.left" timestamp="1585214436797">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="628" height="180" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1585284062980" />
+    <state width="628" height="180" key="GridCell.Tab.0.left" timestamp="1585284062979">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.0.left/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916020" />
     <state width="1398" height="209" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1585214436797" />
-    <state width="1398" height="209" key="GridCell.Tab.0.right" timestamp="1585214436798">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="628" height="180" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1585284062979" />
+    <state width="628" height="180" key="GridCell.Tab.0.right" timestamp="1585284062982">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state width="1398" height="253" key="GridCell.Tab.0.right/-1280.0.1280.720/0.0.1440.900@0.0.1440.900" timestamp="1583694916026" />
     <state width="1398" height="209" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1585214436798" />
+    <state width="628" height="180" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1585284062982" />
     <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1585200874259">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -281,10 +286,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="378" y="85" width="683" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1582145875143" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1583920183283">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="385" y="202" width="670" height="619" key="search.everywhere.popup" timestamp="1585277844443">
+      <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1583920183283" />
+    <state x="385" y="202" width="670" height="619" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1585277844443" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -298,6 +304,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1585200959342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/projetWEB$projetWEB.coverage" NAME="projetWEB Coverage Results" MODIFIED="1585279309883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
